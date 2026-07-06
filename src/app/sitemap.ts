@@ -9,5 +9,11 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: "monthly",
       priority: 1,
     },
+    {
+      url: `${siteContent.brand.siteUrl}${siteContent.portfolio.path}`,
+      lastModified: new Date("2026-07-06"),
+      changeFrequency: "monthly",
+      priority: 0.8,
+    },
   ];
 }

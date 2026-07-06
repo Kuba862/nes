@@ -47,7 +47,8 @@
   transition: width 0.3s var(--ease);
 }
 
-.navLinks a:hover::after {
+.navLinks a:hover::after,
+.navLinks a.current::after {
   width: 100%;
 }
 
@@ -114,6 +115,10 @@
 }
 
 .mobileMenu a:hover {
+  color: var(--blue);
+}
+
+.mobileMenu a.currentMobile {
   color: var(--blue);
 }
 

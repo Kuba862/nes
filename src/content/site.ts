@@ -1,6 +1,8 @@
 export type NavLink = {
   label: string;
   href: string;
+  portfolioHref: string;
+  page?: "portfolio";
 };
 
 export type Service = {
@@ -19,6 +21,22 @@ export type Work = {
   href: string;
   coverVariant: "a1" | "a2" | "a3" | "a4";
   coverGlyph: string;
+};
+
+export type PortfolioWork = {
+  index: string;
+  name: string;
+  category: string;
+  description: string;
+  tags: readonly string[];
+  coverVariant: "v1" | "v2" | "v3" | "v4" | "v5";
+  initials: string;
+  href: string;
+  photo: {
+    src: string;
+    alt: string;
+  } | null;
+  pendingClientInput: boolean;
 };
 
 export type ProcessStep = {
@@ -81,10 +99,10 @@ export const siteContent = {
       href: "#kontakt",
     },
     links: [
-      { label: "Oferta", href: "#oferta" },
-      { label: "Realizacje", href: "#realizacje" },
-      { label: "Proces", href: "#proces" },
-      { label: "Kontakt", href: "#kontakt" },
+      { label: "Oferta", href: "#oferta", portfolioHref: "/#oferta" },
+      { label: "Realizacje", href: "/realizacje", portfolioHref: "/realizacje", page: "portfolio" },
+      { label: "Proces", href: "#proces", portfolioHref: "/#proces" },
+      { label: "Kontakt", href: "#kontakt", portfolioHref: "/#kontakt" },
     ] satisfies readonly NavLink[],
   },
   hero: {
@@ -100,8 +118,7 @@ export const siteContent = {
         end: "końca.",
       },
     },
-    lede:
-      "Never Ending Story to agencja, która łączy strategię, kreację i komunikację. Budujemy marki, przy których odbiorcy zostają na dłużej — od pierwszego rozdziału po każdy kolejny.",
+    lede: "Never Ending Story to agencja, która łączy strategię, kreację i komunikację. Budujemy marki, przy których odbiorcy zostają na dłużej — od pierwszego rozdziału po każdy kolejny.",
     primaryAction: {
       label: "Porozmawiajmy",
       href: "#kontakt",
@@ -177,7 +194,7 @@ export const siteContent = {
     viewLabel: "Zobacz case study",
     portfolioAction: {
       label: "Zobacz pełne portfolio",
-      href: "#kontakt",
+      href: "/realizacje",
     },
     cases: [
       {
@@ -186,7 +203,7 @@ export const siteContent = {
         title: "Beauty od nowa",
         result:
           "Nowa identyfikacja i ton komunikacji, które przeniosły markę z półki „jedna z wielu” na „ta jedna”.",
-        href: "#kontakt",
+        href: "/realizacje",
         coverVariant: "a1",
         coverGlyph: "Aa",
       },
@@ -196,7 +213,7 @@ export const siteContent = {
         title: "Premiera, która niesie",
         result:
           "Strategia wejścia na rynek i kampania 360°, która z premiery produktu zrobiła wydarzenie.",
-        href: "#kontakt",
+        href: "/realizacje",
         coverVariant: "a2",
         coverGlyph: "№2",
       },
@@ -206,7 +223,7 @@ export const siteContent = {
         title: "Stolik pełen historii",
         result:
           "Codzienna komunikacja, która zamienia obserwujących w gości — a gości w stałych bywalców.",
-        href: "#kontakt",
+        href: "/realizacje",
         coverVariant: "a3",
         coverGlyph: "”",
       },
@@ -216,11 +233,256 @@ export const siteContent = {
         title: "Kultura w kadrze",
         result:
           "Seria materiałów wideo i kampania contentowa, która przyciągnęła nową, młodszą publiczność.",
-        href: "#kontakt",
+        href: "/realizacje",
         coverVariant: "a4",
         coverGlyph: "Kadr",
       },
     ] satisfies readonly Work[],
+  },
+  portfolio: {
+    path: "/realizacje",
+    seo: {
+      title: "Realizacje — Never Ending Story | Portfolio agencji marketingowej",
+      description:
+        "Szesnaście marek z gastronomii, beauty i wellnessu, którym pomagamy opowiadać się światu. Zobacz realizacje agencji Never Ending Story.",
+    },
+    hero: {
+      eyebrow: "Realizacje",
+      title: {
+        firstLine: {
+          firstLetter: "O",
+          rest: "sobne historie,",
+        },
+        secondLine: {
+          start: "wspólny",
+          emphasis: "charakter",
+          end: ".",
+        },
+      },
+      lede: "Gastronomia, beauty i wellness — szesnaście marek, którym pomagamy opowiadać się światu. Pierwsze sześć rozdziałów znajdziesz od razu, kolejne doczytają się same, gdy będziesz scrollować.",
+      meta: [
+        { value: "16", label: "realizacji" },
+        { value: "09", label: "gastronomia" },
+        { value: "06", label: "beauty & wellness" },
+        { value: "01", label: "lifestyle" },
+      ],
+    },
+    gridAriaLabel: "Lista realizacji",
+    viewLabel: "Zobacz historię →",
+    initialVisibleCount: 6,
+    batchSize: 5,
+    loadingDelayMs: 700,
+    revealStaggerMs: 110,
+    loadingStatus: "Wczytujemy kolejne historie…",
+    statusSuffix: "— scrolluj dalej",
+    endcap: {
+      symbol: "∞",
+      heading: "To jeszcze nie koniec.",
+      text: "Kolejny rozdział może należeć do Twojej marki. Opowiedz nam, gdzie jest dziś — my zaplanujemy, dokąd pójdzie.",
+      action: {
+        label: "Porozmawiajmy",
+        href: "/#kontakt",
+      },
+    },
+    works: [
+      {
+        index: "01",
+        name: "Przestrzeń Holistyka",
+        category: "Beauty & wellness",
+        description:
+          "Miejsce, w którym ciało i głowa łapią wspólny rytm — komunikacja spokojna jak oddech.",
+        tags: ["Social media", "Content foto"],
+        coverVariant: "v1",
+        initials: "Ph",
+        href: "/#kontakt",
+        photo: null,
+        pendingClientInput: true,
+      },
+      {
+        index: "02",
+        name: "AM Studio",
+        category: "Beauty & wellness",
+        description:
+          "Studio urody z charakterem. Estetyka feedu dopięta jak stylizacje po wyjściu z fotela.",
+        tags: ["Social media", "Identyfikacja"],
+        coverVariant: "v2",
+        initials: "Am",
+        href: "/#kontakt",
+        photo: null,
+        pendingClientInput: true,
+      },
+      {
+        index: "03",
+        name: "Przestrzeń Pilates",
+        category: "Beauty & wellness",
+        description: "Precyzja ruchu przełożona na precyzję komunikacji — kadr po kadrze.",
+        tags: ["Social media", "Content wideo"],
+        coverVariant: "v3",
+        initials: "Pp",
+        href: "/#kontakt",
+        photo: null,
+        pendingClientInput: true,
+      },
+      {
+        index: "04",
+        name: "Calma",
+        category: "Beauty & wellness",
+        description: "Marka, która uczy zwalniać. Opowiadamy ją bez pośpiechu, ale konsekwentnie.",
+        tags: ["Branding", "Social media"],
+        coverVariant: "v4",
+        initials: "Ca",
+        href: "/#kontakt",
+        photo: null,
+        pendingClientInput: true,
+      },
+      {
+        index: "05",
+        name: "Health & Beauty",
+        category: "Beauty & wellness",
+        description: "Zdrowie i uroda w jednym kadrze — content, który buduje zaufanie.",
+        tags: ["Content foto", "Social media"],
+        coverVariant: "v5",
+        initials: "Hb",
+        href: "/#kontakt",
+        photo: null,
+        pendingClientInput: true,
+      },
+      {
+        index: "06",
+        name: "Piękna Sprawa",
+        category: "Beauty & wellness",
+        description: "Piękna sprawa broni się sama — my dbamy, żeby usłyszało o niej całe miasto.",
+        tags: ["Social media", "Kampanie"],
+        coverVariant: "v1",
+        initials: "Ps",
+        href: "/#kontakt",
+        photo: null,
+        pendingClientInput: true,
+      },
+      {
+        index: "07",
+        name: "Spiżarnia Gąski",
+        category: "Gastronomia",
+        description: "Lokalne smaki i spiżarniane klimaty — na półce i w sieci.",
+        tags: ["Social media", "Content foto"],
+        coverVariant: "v2",
+        initials: "Sg",
+        href: "/#kontakt",
+        photo: null,
+        pendingClientInput: true,
+      },
+      {
+        index: "08",
+        name: "Urban",
+        category: "Lifestyle",
+        description:
+          "Miejski charakter i wyrazisty ton — komunikacja prosto z ulicy, nie z korporacji.",
+        tags: ["Identyfikacja", "Social media"],
+        coverVariant: "v3",
+        initials: "Ur",
+        href: "/#kontakt",
+        photo: null,
+        pendingClientInput: true,
+      },
+      {
+        index: "09",
+        name: "Sababa",
+        category: "Gastronomia",
+        description: "Izraelska kuchnia, która nie potrzebuje tłumaczenia — tylko dobrego kadru.",
+        tags: ["Social media", "Content foto"],
+        coverVariant: "v4",
+        initials: "Sb",
+        href: "/#kontakt",
+        photo: null,
+        pendingClientInput: true,
+      },
+      {
+        index: "10",
+        name: "Hamsa",
+        category: "Gastronomia",
+        description: "Bliskowschodnie smaki opowiadane z energią, którą czuć od progu.",
+        tags: ["Social media", "Kampanie"],
+        coverVariant: "v5",
+        initials: "Hm",
+        href: "/#kontakt",
+        photo: null,
+        pendingClientInput: true,
+      },
+      {
+        index: "11",
+        name: "Boccanera",
+        category: "Gastronomia",
+        description:
+          "Włoska dusza w mocnym, wyrazistym wydaniu — od identyfikacji po codzienny content.",
+        tags: ["Identyfikacja", "Social media"],
+        coverVariant: "v1",
+        initials: "Bc",
+        href: "/#kontakt",
+        photo: null,
+        pendingClientInput: true,
+      },
+      {
+        index: "12",
+        name: "Szara Gęś Le Prive",
+        category: "Gastronomia",
+        description:
+          "Fine dining za zamkniętymi drzwiami. Komunikacja szyta na miarę — jak wszystko tutaj.",
+        tags: ["Strategia", "Content foto"],
+        coverVariant: "v2",
+        initials: "Lp",
+        href: "/#kontakt",
+        photo: null,
+        pendingClientInput: true,
+      },
+      {
+        index: "13",
+        name: "N’Pizza",
+        category: "Gastronomia",
+        description: "Pizza, która dobrze się dzieli — na kawałki i na posty.",
+        tags: ["Social media", "Content foto"],
+        coverVariant: "v3",
+        initials: "N’",
+        href: "/#kontakt",
+        photo: null,
+        pendingClientInput: true,
+      },
+      {
+        index: "14",
+        name: "Nolio Pop",
+        category: "Gastronomia",
+        description: "Neapol w wersji pop: szybkie tempo, głośne kolory, wyraziste kadry.",
+        tags: ["Social media", "Kampanie"],
+        coverVariant: "v4",
+        initials: "No",
+        href: "/#kontakt",
+        photo: null,
+        pendingClientInput: true,
+      },
+      {
+        index: "15",
+        name: "Salute Bar",
+        category: "Gastronomia",
+        description: "Aperitivo po polsku — toast wznoszony codziennie, także online.",
+        tags: ["Social media", "Content foto"],
+        coverVariant: "v5",
+        initials: "Sa",
+        href: "/#kontakt",
+        photo: null,
+        pendingClientInput: true,
+      },
+      {
+        index: "16",
+        name: "Franca",
+        category: "Gastronomia",
+        description: "Bistro z winem w tle. Historię opowiadamy kieliszek po kieliszku.",
+        tags: ["Social media", "Content foto"],
+        coverVariant: "v1",
+        initials: "Fr",
+        href: "/#kontakt",
+        photo: null,
+        pendingClientInput: true,
+      },
+    ] satisfies readonly PortfolioWork[],
   },
   process: {
     id: "proces",
@@ -267,8 +529,7 @@ export const siteContent = {
     id: "kontakt",
     eyebrow: "Kontakt",
     heading: "Zacznijmy Twoją historię",
-    lede:
-      "Opowiedz nam o swojej marce — o tym, gdzie jest i dokąd chce dojść. Wrócimy z pomysłem na pierwszy rozdział.",
+    lede: "Opowiedz nam o swojej marce — o tym, gdzie jest i dokąd chce dojść. Wrócimy z pomysłem na pierwszy rozdział.",
     email: {
       label: "hello@neverendingstory.pl",
       href: "mailto:hello@neverendingstory.pl",
