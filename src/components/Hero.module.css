@@ -1,0 +1,131 @@
+.hero {
+  padding: 190px 0 90px;
+  position: relative;
+  overflow: hidden;
+}
+
+.heroEyebrow {
+  margin-bottom: 34px;
+}
+
+.hero h1 {
+  font-family: var(--serif);
+  font-weight: 480;
+  font-size: clamp(46px, 8.6vw, 118px);
+  line-height: 1.02;
+  letter-spacing: 0.005em;
+  max-width: 14ch;
+}
+
+.hero h1 > span {
+  display: block;
+}
+
+.blue {
+  color: var(--blue);
+}
+
+.hero h1 em {
+  font-style: italic;
+  font-weight: 440;
+}
+
+.oWrap {
+  position: relative;
+  display: inline-block;
+  z-index: 0;
+}
+
+.oDot {
+  position: absolute;
+  left: 0.015em;
+  top: 0.135em;
+  width: 0.55em;
+  height: 0.66em;
+  background: var(--orange);
+  border-radius: 50%;
+  z-index: -1;
+  animation:
+    dotIn 0.9s 0.65s cubic-bezier(0.3, 1.4, 0.4, 1) both,
+    dotFloat 7s 2s ease-in-out infinite;
+}
+
+@keyframes dotIn {
+  from {
+    transform: scale(0);
+  }
+
+  to {
+    transform: scale(1);
+  }
+}
+
+@keyframes dotFloat {
+  0%,
+  100% {
+    transform: translateY(0) scale(1);
+  }
+
+  50% {
+    transform: translateY(0.045em) scale(1);
+  }
+}
+
+.heroLede {
+  margin-top: 38px;
+  font-size: clamp(17px, 1.5vw, 20px);
+  line-height: 1.65;
+  max-width: 52ch;
+  color: #3c3c46;
+}
+
+.heroActions {
+  margin-top: 44px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  align-items: center;
+}
+
+.heroMeta {
+  margin-top: 64px;
+  padding-top: 26px;
+  border-top: 1px solid var(--line);
+  font-weight: 600;
+  font-size: 12px;
+  letter-spacing: 0.26em;
+  text-transform: uppercase;
+  color: #5a5a66;
+  display: flex;
+  gap: 14px;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.heroMeta span {
+  display: inline-flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.heroMeta i {
+  width: 6px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--orange);
+  display: inline-block;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .oDot {
+    animation: none !important;
+    opacity: 1 !important;
+    transform: none !important;
+  }
+}
+
+@media (max-width: 620px) {
+  .hero {
+    padding: 150px 0 70px;
+  }
+}

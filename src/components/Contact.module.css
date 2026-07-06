@@ -1,0 +1,107 @@
+.contact {
+  background: var(--blue);
+  color: #fff;
+  padding: 130px 0;
+}
+
+.contact ::selection {
+  background: var(--orange);
+  color: var(--ink);
+}
+
+.contact :global(.eyebrow) {
+  color: #fff;
+}
+
+.contact h2 {
+  font-family: var(--serif);
+  font-weight: 480;
+  font-size: clamp(44px, 7.4vw, 96px);
+  line-height: 1.04;
+  margin-top: 26px;
+  max-width: 13ch;
+}
+
+.period {
+  display: inline-block;
+  width: 0.16em;
+  height: 0.19em;
+  background: var(--orange);
+  border-radius: 50%;
+  margin-left: 0.06em;
+  transform: translateY(-0.02em);
+}
+
+.contactGrid {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr;
+  gap: 64px;
+  align-items: end;
+  margin-top: 70px;
+}
+
+.contactLede {
+  font-size: 18px;
+  line-height: 1.65;
+  color: rgba(255, 255, 255, 0.88);
+  max-width: 46ch;
+  margin-top: 28px;
+}
+
+.contactActions {
+  margin-top: 40px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 18px;
+}
+
+.contactList {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.28);
+}
+
+.contactList a {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+  padding: 20px 4px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.28);
+  font-weight: 600;
+  font-size: 13px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  transition:
+    padding 0.3s var(--ease),
+    color 0.3s var(--ease);
+}
+
+.contactList a small {
+  font-family: var(--serif);
+  font-size: 17px;
+  letter-spacing: 0.02em;
+  text-transform: none;
+  font-style: italic;
+  color: rgba(255, 255, 255, 0.75);
+}
+
+.contactList a:hover {
+  padding-left: 14px;
+  color: var(--orange);
+}
+
+@media (max-width: 880px) {
+  .contactGrid {
+    grid-template-columns: 1fr;
+    gap: 48px;
+    align-items: start;
+  }
+}
+
+@media (max-width: 620px) {
+  .contact {
+    padding: 96px 0;
+  }
+}

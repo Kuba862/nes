@@ -1,0 +1,145 @@
+.nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  background: rgba(255, 255, 255, 0.86);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border-bottom: 1px solid var(--line);
+}
+
+.navIn {
+  max-width: var(--wrap);
+  margin: 0 auto;
+  padding: 14px 6vw;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+}
+
+.navLinks {
+  display: flex;
+  align-items: center;
+  gap: 36px;
+  list-style: none;
+}
+
+.navLinks a {
+  font-weight: 600;
+  font-size: 13px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  position: relative;
+  padding: 6px 0;
+}
+
+.navLinks a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 0;
+  height: 2px;
+  background: var(--orange);
+  transition: width 0.3s var(--ease);
+}
+
+.navLinks a:hover::after {
+  width: 100%;
+}
+
+.navCta {
+  white-space: nowrap;
+  padding: 12px 24px;
+}
+
+.burger {
+  display: none;
+  background: none;
+  border: 0;
+  cursor: pointer;
+  padding: 8px;
+}
+
+.burger span {
+  display: block;
+  width: 26px;
+  height: 2px;
+  background: var(--ink);
+  margin: 6px 0;
+  transition:
+    transform 0.3s var(--ease),
+    opacity 0.3s;
+}
+
+.burgerOpen span:nth-child(1) {
+  transform: translateY(8px) rotate(45deg);
+}
+
+.burgerOpen span:nth-child(2) {
+  opacity: 0;
+}
+
+.burgerOpen span:nth-child(3) {
+  transform: translateY(-8px) rotate(-45deg);
+}
+
+.mobileMenu {
+  display: none;
+  position: fixed;
+  inset: 0;
+  z-index: 90;
+  background: var(--paper);
+  padding: 120px 8vw 40px;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.mobileMenuOpen {
+  display: flex;
+}
+
+.mobileMenu a {
+  font-family: var(--serif);
+  font-size: clamp(34px, 9vw, 54px);
+  color: var(--ink);
+  padding: 10px 0;
+  border-bottom: 1px solid var(--line);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.mobileMenu a:hover {
+  color: var(--blue);
+}
+
+.mobileMenu .mmCta {
+  margin-top: auto;
+  border: 0;
+  justify-content: center;
+}
+
+:global(body.menu-open) {
+  overflow: hidden;
+}
+
+@media (min-width: 1400px) {
+  .navIn {
+    padding: 14px 24px;
+  }
+}
+
+@media (max-width: 880px) {
+  .navLinks,
+  .navCta {
+    display: none;
+  }
+
+  .burger {
+    display: block;
+  }
+}

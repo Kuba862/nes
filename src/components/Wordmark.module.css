@@ -1,0 +1,39 @@
+.lockup {
+  display: flex;
+  flex-direction: column;
+  line-height: 1;
+  gap: 3px;
+}
+
+.top {
+  font-weight: 800;
+  font-size: 9.5px;
+  letter-spacing: 0.42em;
+  text-transform: uppercase;
+}
+
+.bottom {
+  font-family: var(--serif);
+  font-weight: 500;
+  font-size: 26px;
+  letter-spacing: 0.06em;
+  color: var(--blue);
+  text-transform: uppercase;
+}
+
+.logoO {
+  position: relative;
+  display: inline-block;
+  z-index: 0;
+}
+
+.logoO i {
+  position: absolute;
+  left: 0.03em;
+  top: 0.16em;
+  width: 0.56em;
+  height: 0.66em;
+  background: var(--orange);
+  border-radius: 50%;
+  z-index: -1;
+}

@@ -1,0 +1,36 @@
+.reveal {
+  opacity: 0;
+  transform: translateY(36px);
+  transition:
+    opacity 0.8s var(--ease),
+    transform 0.8s var(--ease);
+}
+
+.in {
+  opacity: 1;
+  transform: none;
+}
+
+.dl1 {
+  transition-delay: 0.08s;
+}
+
+.dl2 {
+  transition-delay: 0.16s;
+}
+
+.dl3 {
+  transition-delay: 0.24s;
+}
+
+.dl4 {
+  transition-delay: 0.32s;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}

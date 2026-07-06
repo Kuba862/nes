@@ -1,0 +1,63 @@
+.marquee {
+  background: var(--blue);
+  color: #fff;
+  overflow: hidden;
+  padding: 20px 0;
+  border-top: 1px solid var(--blue);
+  border-bottom: 1px solid var(--blue);
+}
+
+.track {
+  display: flex;
+  width: max-content;
+  animation: scrollX 32s linear infinite;
+  will-change: transform;
+}
+
+.marquee:hover .track {
+  animation-play-state: paused;
+}
+
+.set {
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+.set > span {
+  display: flex;
+  align-items: center;
+}
+
+.set span span {
+  font-family: var(--serif);
+  font-size: 24px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  padding: 0 28px;
+  white-space: nowrap;
+}
+
+.set i {
+  width: 10px;
+  height: 12px;
+  border-radius: 50%;
+  background: var(--orange);
+  flex-shrink: 0;
+}
+
+@keyframes scrollX {
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .track {
+    animation: none;
+  }
+}

@@ -1,0 +1,40 @@
+.manifest {
+  padding: 150px 0;
+  text-align: center;
+}
+
+.manifest :global(.eyebrow) {
+  justify-content: center;
+}
+
+.manifest :global(.eyebrow)::before {
+  display: none;
+}
+
+.manifest blockquote {
+  font-family: var(--serif);
+  font-weight: 460;
+  font-size: clamp(28px, 4.2vw, 52px);
+  line-height: 1.28;
+  max-width: 22ch;
+  margin: 36px auto 0;
+}
+
+.manifest blockquote span {
+  color: var(--blue);
+}
+
+.sig {
+  margin-top: 34px;
+  font-weight: 600;
+  font-size: 12px;
+  letter-spacing: 0.26em;
+  text-transform: uppercase;
+  color: #5a5a66;
+}
+
+@media (max-width: 620px) {
+  .manifest {
+    padding: 100px 0;
+  }
+}
