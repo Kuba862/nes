@@ -18,6 +18,7 @@
   align-items: center;
   justify-content: space-between;
   gap: 24px;
+  min-height: 74px;
 }
 
 .navLinks {
@@ -94,9 +95,12 @@
   inset: 0;
   z-index: 90;
   background: var(--paper);
-  padding: 120px 8vw 40px;
+  min-height: 100dvh;
+  padding: 112px 8vw calc(32px + env(safe-area-inset-bottom));
   flex-direction: column;
   gap: 8px;
+  overflow-y: auto;
+  overscroll-behavior: contain;
 }
 
 .mobileMenuOpen {
@@ -105,13 +109,21 @@
 
 .mobileMenu a {
   font-family: var(--serif);
-  font-size: clamp(34px, 9vw, 54px);
+  font-size: 48px;
+  line-height: 1.06;
   color: var(--ink);
   padding: 10px 0;
   border-bottom: 1px solid var(--line);
   display: flex;
   justify-content: space-between;
   align-items: center;
+  gap: 18px;
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+
+.mobileMenu a span {
+  flex-shrink: 0;
 }
 
 .mobileMenu a:hover {
@@ -123,9 +135,28 @@
 }
 
 .mobileMenu .mmCta {
+  width: 100%;
+  min-height: 54px;
   margin-top: auto;
+  padding: 16px 20px;
   border: 0;
+  border-radius: 999px;
+  background: var(--blue);
+  color: #fff;
+  font-family: var(--sans);
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0;
+  line-height: 1.18;
+  text-align: center;
+  text-transform: uppercase;
+  white-space: normal;
   justify-content: center;
+}
+
+.mobileMenu .mmCta:hover {
+  background: var(--blue-deep);
+  color: #fff;
 }
 
 :global(body.menu-open) {
@@ -139,12 +170,66 @@
 }
 
 @media (max-width: 880px) {
+  .navIn {
+    padding: 12px 5.5vw;
+  }
+
   .navLinks,
   .navCta {
     display: none;
   }
 
   .burger {
-    display: block;
+    display: inline-flex;
+    width: 44px;
+    height: 44px;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+}
+
+@media (max-width: 620px) {
+  .navIn {
+    min-height: 66px;
+    padding: 10px 20px;
+    gap: 16px;
+  }
+
+  .mobileMenu {
+    padding: 92px 20px calc(24px + env(safe-area-inset-bottom));
+    gap: 6px;
+  }
+
+  .mobileMenu a {
+    padding: 12px 0;
+    font-size: 34px;
+  }
+
+  .mobileMenu .mmCta {
+    min-height: 52px;
+    margin-top: auto;
+    padding: 15px 18px;
+    font-size: 12px;
+  }
+}
+
+@media (max-width: 380px) {
+  .navIn {
+    padding-right: 16px;
+    padding-left: 16px;
+  }
+
+  .mobileMenu {
+    padding-right: 16px;
+    padding-left: 16px;
+  }
+
+  .mobileMenu a {
+    font-size: 30px;
+  }
+
+  .mobileMenu .mmCta {
+    font-size: 11.5px;
   }
 }

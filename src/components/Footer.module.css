@@ -63,3 +63,36 @@
   font-family: var(--serif);
   font-size: 14px;
 }
+
+@media (max-width: 620px) {
+  .footer {
+    padding: 48px 0 30px;
+  }
+
+  .footerGrid {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 30px;
+  }
+
+  .footerLogo img {
+    width: 190px;
+  }
+
+  .footerNav {
+    flex-direction: column;
+    gap: 14px;
+  }
+
+  .footerNav a {
+    font-size: 12px;
+    letter-spacing: 0;
+  }
+
+  .footerBase {
+    flex-direction: column;
+    gap: 8px;
+    margin-top: 34px;
+    font-size: 12px;
+  }
+}

@@ -102,6 +102,50 @@
 
 @media (max-width: 620px) {
   .contact {
-    padding: 96px 0;
+    padding: 78px 0;
+  }
+
+  .contact h2 {
+    max-width: 11ch;
+    margin-top: 20px;
+    font-size: 48px;
+  }
+
+  .contactGrid {
+    gap: 36px;
+    margin-top: 44px;
+  }
+
+  .contactLede {
+    margin-top: 24px;
+    font-size: 16px;
+    line-height: 1.58;
+  }
+
+  .contactActions {
+    flex-direction: column;
+    gap: 12px;
+    margin-top: 30px;
+  }
+
+  .contactList a {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 4px;
+    padding: 16px 0;
+    font-size: 12px;
+    letter-spacing: 0;
+  }
+
+  .contactList a small {
+    font-size: 16px;
+    line-height: 1.35;
+    overflow-wrap: anywhere;
+  }
+}
+
+@media (max-width: 380px) {
+  .contact h2 {
+    font-size: 42px;
   }
 }

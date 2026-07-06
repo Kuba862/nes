@@ -698,8 +698,16 @@
   }
 }
 
+@media (hover: none) {
+  .pview {
+    opacity: 1;
+    transform: none;
+  }
+}
+
 @media (max-width: 880px) {
   .pgrid {
+    grid-template-columns: 1fr;
     gap: 64px;
   }
 
@@ -724,14 +732,171 @@
 
 @media (max-width: 620px) {
   .phero {
-    padding: 145px 0 56px;
+    padding: 128px 0 50px;
+  }
+
+  .phero h1 {
+    margin-top: 26px;
+    font-size: 48px;
+  }
+
+  .pheroLede {
+    margin-top: 26px;
+    font-size: 16px;
+    line-height: 1.58;
+  }
+
+  .pheroMeta {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+    margin-top: 38px;
+    padding-top: 20px;
+    font-size: 12px;
+    letter-spacing: 0;
+  }
+
+  .pheroMeta b {
+    font-size: 18px;
+  }
+
+  .names {
+    padding: 12px 0;
+  }
+
+  .names span {
+    padding: 0 16px;
+    font-size: 14px;
+    letter-spacing: 0;
+  }
+
+  .names i {
+    width: 6px;
+    height: 7px;
   }
 
   .pworks {
-    padding: 70px 0 30px;
+    padding: 58px 0 24px;
+  }
+
+  .pgrid {
+    gap: 52px;
+  }
+
+  .pcover {
+    border-radius: 5px;
+  }
+
+  .clsA .pcover,
+  .clsB .pcover,
+  .clsC .pcover,
+  .clsD .pcover {
+    aspect-ratio: 4 / 3;
+  }
+
+  .pnum {
+    top: 12px;
+    left: 12px;
+    padding: 5px 10px;
+    font-size: 10px;
+    letter-spacing: 0;
+  }
+
+  .pview {
+    left: 12px;
+    bottom: 12px;
+    max-width: calc(100% - 24px);
+    padding: 8px 12px;
+    font-size: 10px;
+    letter-spacing: 0;
+    opacity: 1;
+    transform: none;
+  }
+
+  .pmeta {
+    padding-top: 16px;
+  }
+
+  .pcat {
+    font-size: 10.5px;
+    letter-spacing: 0;
+  }
+
+  .pmeta h3 {
+    font-size: 26px;
+  }
+
+  .pmeta p {
+    font-size: 14.5px;
+    line-height: 1.58;
+  }
+
+  .ptags {
+    gap: 7px;
+  }
+
+  .ptags b {
+    padding: 5px 10px;
+    font-size: 10px;
+    letter-spacing: 0;
+  }
+
+  .v1 .init,
+  .v4 .init {
+    font-size: 76px;
+  }
+
+  .v2 .init {
+    font-size: 56px;
+  }
+
+  .v3 .init {
+    font-size: 142px;
+  }
+
+  .v5 .init {
+    font-size: 112px;
+  }
+
+  .loadzone {
+    padding: 52px 0 12px;
+  }
+
+  .status {
+    font-size: 10.5px;
+    letter-spacing: 0;
   }
 
   .endcap {
     padding: 60px 0 90px;
+  }
+
+  .inf {
+    font-size: 46px;
+  }
+
+  .endcap h2 {
+    font-size: 36px;
+    line-height: 1.08;
+  }
+
+  .endcap p {
+    margin-bottom: 28px;
+    font-size: 15px;
+    line-height: 1.58;
+  }
+}
+
+@media (max-width: 380px) {
+  .phero h1 {
+    font-size: 42px;
+  }
+
+  .pmeta h3 {
+    font-size: 24px;
+  }
+
+  .v3 .init {
+    font-size: 122px;
   }
 }

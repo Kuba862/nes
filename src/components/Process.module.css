@@ -54,4 +54,23 @@
   .steps {
     grid-template-columns: 1fr;
   }
+
+  .step {
+    padding: 30px 22px 34px;
+  }
+
+  .num {
+    font-size: 48px;
+  }
+
+  .step h3 {
+    margin: 20px 0 10px;
+    font-size: 13px;
+    letter-spacing: 0;
+  }
+
+  .step p {
+    font-size: 14.5px;
+    line-height: 1.58;
+  }
 }

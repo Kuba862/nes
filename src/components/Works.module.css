@@ -260,9 +260,90 @@
   justify-content: center;
 }
 
+@media (hover: none) {
+  .view {
+    opacity: 1;
+    transform: none;
+  }
+}
+
 @media (max-width: 880px) {
   .worksGrid {
     grid-template-columns: 1fr;
     gap: 52px;
+  }
+}
+
+@media (max-width: 620px) {
+  .worksGrid {
+    gap: 42px;
+  }
+
+  .cover {
+    border-radius: 5px;
+  }
+
+  .chip {
+    top: 12px;
+    right: 12px;
+    padding: 5px 10px;
+    font-size: 10px;
+    letter-spacing: 0;
+  }
+
+  .view {
+    left: 12px;
+    bottom: 12px;
+    max-width: calc(100% - 24px);
+    padding: 8px 12px;
+    font-size: 10px;
+    letter-spacing: 0;
+    opacity: 1;
+    transform: none;
+  }
+
+  .cardMeta {
+    padding-top: 16px;
+  }
+
+  .cat {
+    font-size: 10.5px;
+    letter-spacing: 0;
+  }
+
+  .cardMeta h3 {
+    font-size: 26px;
+  }
+
+  .cardMeta p {
+    font-size: 14.5px;
+    line-height: 1.58;
+  }
+
+  .a1 .gl,
+  .a4 .gl {
+    font-size: 86px;
+  }
+
+  .a2 .gl {
+    font-size: 56px;
+  }
+
+  .a3 .gl {
+    font-size: 180px;
+  }
+
+  .worksNote {
+    margin-top: 42px;
+  }
+}
+
+@media (max-width: 380px) {
+  .cardMeta h3 {
+    font-size: 24px;
+  }
+
+  .a3 .gl {
+    font-size: 150px;
   }
 }

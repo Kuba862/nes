@@ -126,3 +126,51 @@
     height: 46px;
   }
 }
+
+@media (max-width: 620px) {
+  .offerRow {
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "name"
+      "desc"
+      "go";
+    gap: 16px;
+    padding: 26px 0;
+  }
+
+  .offerName {
+    font-size: 28px;
+  }
+
+  .offerDesc {
+    font-size: 15px;
+    line-height: 1.58;
+  }
+
+  .tags {
+    gap: 7px;
+    margin-top: 14px;
+  }
+
+  .tags b {
+    padding: 5px 10px;
+    font-size: 10px;
+    letter-spacing: 0;
+  }
+
+  .offerGo {
+    justify-self: start;
+    width: 44px;
+    height: 44px;
+  }
+}
+
+@media (max-width: 380px) {
+  .offerName {
+    font-size: 25px;
+  }
+
+  .tags b {
+    font-size: 9.5px;
+  }
+}

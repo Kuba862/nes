@@ -35,6 +35,24 @@
 
 @media (max-width: 620px) {
   .manifest {
-    padding: 100px 0;
+    padding: 82px 0;
+  }
+
+  .manifest blockquote {
+    margin-top: 28px;
+    font-size: 32px;
+    line-height: 1.24;
+  }
+
+  .sig {
+    margin-top: 28px;
+    font-size: 11px;
+    letter-spacing: 0;
+  }
+}
+
+@media (max-width: 380px) {
+  .manifest blockquote {
+    font-size: 29px;
   }
 }

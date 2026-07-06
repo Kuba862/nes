@@ -61,3 +61,20 @@
     animation: none;
   }
 }
+
+@media (max-width: 620px) {
+  .marquee {
+    padding: 14px 0;
+  }
+
+  .set span span {
+    padding: 0 18px;
+    font-size: 18px;
+    letter-spacing: 0;
+  }
+
+  .set i {
+    width: 8px;
+    height: 10px;
+  }
+}
