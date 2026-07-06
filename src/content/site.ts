@@ -32,9 +32,15 @@ export type PortfolioWork = {
   coverVariant: "v1" | "v2" | "v3" | "v4" | "v5";
   initials: string;
   href: string;
-  photo: {
-    src: string;
-    alt: string;
+  photos: {
+    primary: {
+      src: string;
+      alt: string;
+    };
+    hover?: {
+      src: string;
+      alt: "";
+    };
   } | null;
   pendingClientInput: boolean;
 };
@@ -52,6 +58,27 @@ export type ContactLink = {
   href: string;
   pendingClientInput: boolean;
 };
+
+function portfolioPhotos(
+  name: string,
+  primary: string,
+  hover?: string,
+): NonNullable<PortfolioWork["photos"]> {
+  return {
+    primary: {
+      src: primary,
+      alt: `Fotografia z realizacji dla marki ${name}`,
+    },
+    ...(hover
+      ? {
+          hover: {
+            src: hover,
+            alt: "",
+          },
+        }
+      : {}),
+  };
+}
 
 export const siteContent = {
   brand: {
@@ -244,7 +271,7 @@ export const siteContent = {
     seo: {
       title: "Realizacje — Never Ending Story | Portfolio agencji marketingowej",
       description:
-        "Szesnaście marek z gastronomii, beauty i wellnessu, którym pomagamy opowiadać się światu. Zobacz realizacje agencji Never Ending Story.",
+        "Szesnaście marek z gastronomii, beauty & wellness i lifestyle'u, którym pomagamy opowiadać się światu. Zobacz realizacje agencji Never Ending Story.",
     },
     hero: {
       eyebrow: "Realizacje",
@@ -295,7 +322,11 @@ export const siteContent = {
         coverVariant: "v1",
         initials: "Ph",
         href: "/#kontakt",
-        photo: null,
+        photos: portfolioPhotos(
+          "Przestrzeń Holistyka",
+          "/portfolio/przestrzen-holistyka-d9763580.jpg",
+          "/portfolio/przestrzen-holistyka-8b280202.jpg",
+        ),
         pendingClientInput: true,
       },
       {
@@ -308,7 +339,11 @@ export const siteContent = {
         coverVariant: "v2",
         initials: "Am",
         href: "/#kontakt",
-        photo: null,
+        photos: portfolioPhotos(
+          "AM Studio",
+          "/portfolio/am-studio-a86694ae.jpg",
+          "/portfolio/am-studio-1b53b23a.jpg",
+        ),
         pendingClientInput: true,
       },
       {
@@ -320,7 +355,11 @@ export const siteContent = {
         coverVariant: "v3",
         initials: "Pp",
         href: "/#kontakt",
-        photo: null,
+        photos: portfolioPhotos(
+          "Przestrzeń Pilates",
+          "/portfolio/przestrzen-pilates-e3589a78.jpg",
+          "/portfolio/przestrzen-pilates-ee3afcc9.jpg",
+        ),
         pendingClientInput: true,
       },
       {
@@ -332,7 +371,11 @@ export const siteContent = {
         coverVariant: "v4",
         initials: "Ca",
         href: "/#kontakt",
-        photo: null,
+        photos: portfolioPhotos(
+          "Calma",
+          "/portfolio/calma-8de337a0.jpg",
+          "/portfolio/calma-84bd67c0.jpg",
+        ),
         pendingClientInput: true,
       },
       {
@@ -344,7 +387,11 @@ export const siteContent = {
         coverVariant: "v5",
         initials: "Hb",
         href: "/#kontakt",
-        photo: null,
+        photos: portfolioPhotos(
+          "Health & Beauty",
+          "/portfolio/health-and-beauty-03081890.jpg",
+          "/portfolio/health-and-beauty-01871958.jpg",
+        ),
         pendingClientInput: true,
       },
       {
@@ -356,7 +403,7 @@ export const siteContent = {
         coverVariant: "v1",
         initials: "Ps",
         href: "/#kontakt",
-        photo: null,
+        photos: portfolioPhotos("Piękna Sprawa", "/portfolio/piekna-sprawa-348802ff.jpg"),
         pendingClientInput: true,
       },
       {
@@ -368,7 +415,7 @@ export const siteContent = {
         coverVariant: "v2",
         initials: "Sg",
         href: "/#kontakt",
-        photo: null,
+        photos: portfolioPhotos("Spiżarnia Gąski", "/portfolio/spizarnia-gaski-2225ea7a.png"),
         pendingClientInput: true,
       },
       {
@@ -381,7 +428,11 @@ export const siteContent = {
         coverVariant: "v3",
         initials: "Ur",
         href: "/#kontakt",
-        photo: null,
+        photos: portfolioPhotos(
+          "Urban",
+          "/portfolio/urban-739c77ed.jpg",
+          "/portfolio/urban-6e979fc7.jpg",
+        ),
         pendingClientInput: true,
       },
       {
@@ -393,7 +444,11 @@ export const siteContent = {
         coverVariant: "v4",
         initials: "Sb",
         href: "/#kontakt",
-        photo: null,
+        photos: portfolioPhotos(
+          "Sababa",
+          "/portfolio/sababa-cf4d4738.jpg",
+          "/portfolio/sababa-dd39c46b.jpg",
+        ),
         pendingClientInput: true,
       },
       {
@@ -405,7 +460,11 @@ export const siteContent = {
         coverVariant: "v5",
         initials: "Hm",
         href: "/#kontakt",
-        photo: null,
+        photos: portfolioPhotos(
+          "Hamsa",
+          "/portfolio/hamsa-fa14068b.jpg",
+          "/portfolio/hamsa-2cc44fa8.jpg",
+        ),
         pendingClientInput: true,
       },
       {
@@ -418,7 +477,7 @@ export const siteContent = {
         coverVariant: "v1",
         initials: "Bc",
         href: "/#kontakt",
-        photo: null,
+        photos: portfolioPhotos("Boccanera", "/portfolio/boccanera-c5399d6a.jpg"),
         pendingClientInput: true,
       },
       {
@@ -431,7 +490,11 @@ export const siteContent = {
         coverVariant: "v2",
         initials: "Lp",
         href: "/#kontakt",
-        photo: null,
+        photos: portfolioPhotos(
+          "Szara Gęś Le Prive",
+          "/portfolio/szara-ges-le-prive-d882e72f.jpg",
+          "/portfolio/szara-ges-le-prive-6b1e897f.jpg",
+        ),
         pendingClientInput: true,
       },
       {
@@ -443,7 +506,7 @@ export const siteContent = {
         coverVariant: "v3",
         initials: "N’",
         href: "/#kontakt",
-        photo: null,
+        photos: portfolioPhotos("N’Pizza", "/portfolio/npizza-6529ed81.jpg"),
         pendingClientInput: true,
       },
       {
@@ -455,7 +518,7 @@ export const siteContent = {
         coverVariant: "v4",
         initials: "No",
         href: "/#kontakt",
-        photo: null,
+        photos: portfolioPhotos("Nolio Pop", "/portfolio/nolio-pop-3718daef.jpg"),
         pendingClientInput: true,
       },
       {
@@ -467,7 +530,11 @@ export const siteContent = {
         coverVariant: "v5",
         initials: "Sa",
         href: "/#kontakt",
-        photo: null,
+        photos: portfolioPhotos(
+          "Salute Bar",
+          "/portfolio/salute-bar-2bb3b63d.jpg",
+          "/portfolio/salute-bar-49fe0431.jpg",
+        ),
         pendingClientInput: true,
       },
       {
@@ -479,7 +546,11 @@ export const siteContent = {
         coverVariant: "v1",
         initials: "Fr",
         href: "/#kontakt",
-        photo: null,
+        photos: portfolioPhotos(
+          "Franca",
+          "/portfolio/franca-3d0c296b.jpg",
+          "/portfolio/franca-c009bcb9.jpg",
+        ),
         pendingClientInput: true,
       },
     ] satisfies readonly PortfolioWork[],

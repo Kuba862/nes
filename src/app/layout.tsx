@@ -71,7 +71,11 @@ export default function RootLayout({
   children: ReactNode;
 }>) {
   return (
-    <html lang="pl" className={`${archivo.variable} ${bodoniModa.variable}`}>
+    <html
+      lang="pl"
+      className={`${archivo.variable} ${bodoniModa.variable}`}
+      suppressHydrationWarning
+    >
       <body>
         <a className="skip" href="#main">
           {siteContent.skipLink}

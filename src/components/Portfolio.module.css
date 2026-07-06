@@ -212,12 +212,27 @@
 
 .photo {
   object-fit: cover;
-  transition: transform 0.7s var(--ease);
+  transition:
+    opacity 0.5s var(--ease),
+    transform 0.7s var(--ease);
+}
+
+.photoPrimary {
+  z-index: 0;
+}
+
+.photoHover {
+  z-index: 1;
+  opacity: 0;
 }
 
 .pcard:hover .part,
 .pcard:hover .photo {
   transform: scale(1.05);
+}
+
+.pcard:hover .photoHover {
+  opacity: 1;
 }
 
 .pnum {
@@ -338,6 +353,10 @@
   background: var(--blue);
 }
 
+.v1 .pcover {
+  background: var(--blue);
+}
+
 .v1 .el {
   position: absolute;
   left: -14%;
@@ -370,6 +389,10 @@
 }
 
 .v2 .part {
+  background: var(--mist);
+}
+
+.v2 .pcover {
   background: var(--mist);
 }
 
@@ -419,6 +442,10 @@
   background: var(--orange);
 }
 
+.v3 .pcover {
+  background: var(--orange);
+}
+
 .v3 .init {
   position: absolute;
   left: -3%;
@@ -448,6 +475,10 @@
 }
 
 .v4 .part {
+  background: var(--ink);
+}
+
+.v4 .pcover {
   background: var(--ink);
 }
 
@@ -483,6 +514,11 @@
 }
 
 .v5 .part {
+  background: #fff;
+  box-shadow: inset 0 0 0 1px var(--line);
+}
+
+.v5 .pcover {
   background: #fff;
   box-shadow: inset 0 0 0 1px var(--line);
 }
@@ -616,8 +652,10 @@
 :global(.portfolio-js:not(.portfolio-reduced-motion)) .portfolioReveal .part,
 :global(.portfolio-js:not(.portfolio-reduced-motion)) .portfolioReveal .photo {
   transform: scale(1.12);
-  transition: transform 1.1s var(--ease);
-  transition-delay: var(--d, 0ms);
+  transition:
+    opacity 0.5s var(--ease),
+    transform 1.1s var(--ease);
+  transition-delay: 0ms, var(--d, 0ms);
 }
 
 :global(.portfolio-js:not(.portfolio-reduced-motion)) .portfolioReveal.in {
@@ -653,6 +691,10 @@
     opacity: 1;
     transform: none;
     transition: none;
+  }
+
+  .photoHover {
+    display: none;
   }
 }
 

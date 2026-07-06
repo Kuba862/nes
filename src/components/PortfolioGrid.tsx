@@ -14,6 +14,12 @@ const portfolio = siteContent.portfolio;
 const totalWorks = portfolio.works.length;
 const weaveClasses = [styles.clsA, styles.clsB, styles.clsC, styles.clsD] as const;
 
+function getImageSizes(index: number) {
+  const isWideSlot = index % weaveClasses.length === 0 || index % weaveClasses.length === 3;
+
+  return isWideSlot ? "(max-width: 880px) 88vw, 700px" : "(max-width: 880px) 88vw, 500px";
+}
+
 function getRevealDelay(index: number) {
   if (index < portfolio.initialVisibleCount) {
     return index % 2 === 1 ? 120 : 0;
@@ -93,6 +99,9 @@ function WorkCard({
 }) {
   const isDeferred = index >= portfolio.initialVisibleCount;
   const style = { "--d": `${getRevealDelay(index)}ms` } as DelayStyle;
+  const sizes = getImageSizes(index);
+  const isPriority = index < 2;
+  const primaryLoadingProps = isPriority ? { priority: true } : { loading: "lazy" as const };
 
   return (
     <a
@@ -109,15 +118,28 @@ function WorkCard({
       style={style}
     >
       <span className={styles.pcover}>
-        {work.photo ? (
-          <Image
-            className={styles.photo}
-            src={work.photo.src}
-            alt={work.photo.alt}
-            fill
-            sizes={index < portfolio.initialVisibleCount ? "(max-width: 880px) 88vw, 58vw" : "88vw"}
-            {...(index < portfolio.initialVisibleCount ? { priority: true } : { loading: "lazy" })}
-          />
+        {work.photos ? (
+          <>
+            <Image
+              className={cn(styles.photo, styles.photoPrimary)}
+              src={work.photos.primary.src}
+              alt={work.photos.primary.alt}
+              fill
+              sizes={sizes}
+              {...primaryLoadingProps}
+            />
+            {work.photos.hover ? (
+              <Image
+                className={cn(styles.photo, styles.photoHover)}
+                src={work.photos.hover.src}
+                alt={work.photos.hover.alt}
+                fill
+                sizes={sizes}
+                loading="lazy"
+                aria-hidden="true"
+              />
+            ) : null}
+          </>
         ) : (
           <PlaceholderCover work={work} />
         )}
@@ -227,8 +249,13 @@ export function PortfolioGrid() {
     const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
     if (reduceMotion || !("IntersectionObserver" in window)) {
-      setVisibleCount(totalWorks);
-      return;
+      const frame = window.requestAnimationFrame(() => {
+        setVisibleCount(totalWorks);
+      });
+
+      return () => {
+        window.cancelAnimationFrame(frame);
+      };
     }
 
     const observer = new IntersectionObserver(
